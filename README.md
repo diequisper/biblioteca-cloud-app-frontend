@@ -1,27 +1,16 @@
-# BibliotecaAppFrontEnd
-
+# Biblioteca App - FrontEnd
+Hola! Esta es otra versión para el frontend del proyecto Biblioteca App, esta vez usando Angular y el propósito es fortalecer mi manejo de Angular.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
 
-## Development server
+### Funcionalidades
+- Consulta de información de libros, autores y editoriales
+- Inicio de sesión y registro de usuarios
+- Gestión de favoritos (libros, autores o editoriales) para usuarios autenticados
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Contexto
+- Repositorio del frontend anterior con Astro: [Frontend-BibliotecaApp](https://github.com/XianMina/BookStore.git)
+- Repositorio del backend actualizado: [Backend-BibliotecaApp](https://github.com/diequisper/BibliotecaCloudApp-Backend.git)
+- Diseño UI/UX en Figma: [FigmaDesign-BibliotecaApp](https://www.figma.com/design/8QxdwdoWJAJNNdsCinAJFP/biblioteca-app?node-id=0-1&t=7yTwjDpJ3z8F0SuC-1)
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Características Técnicas
+- **Framework**: Angular 17.0.3
