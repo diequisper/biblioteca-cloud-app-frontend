@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, HostListener } from "@angular/core";
+import { Component, ElementRef, HostListener, ViewChild } from "@angular/core";
 
 @Component({
   selector : "app-vnavbar",
@@ -8,7 +8,9 @@ import { Component, HostListener } from "@angular/core";
   templateUrl : "../view/vnavbar.component.html"
 })
 export class VNavBarComponent{
+
   vpHeight : number = 0;
+  @ViewChild('vnavbar') vNavBar !: ElementRef<HTMLDivElement>;
 
   ngOnInit() : void{
     if(typeof window !== "undefined"){

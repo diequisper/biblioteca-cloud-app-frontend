@@ -1,12 +1,18 @@
 <style>
   .bmi{
-    height: 28px;
-    width: 28px;
-    margin-bottom: 40px;
+    height: 4vh;
+    width: 4vh;
   }
   .pi{
-    height: 24px;
-    width: 24px;
+    height: 4vh;
+    width: 4vh;
+  }
+  .oi{
+    height: 3.5vh;
+    width: 3.5vh;
+  }
+  .oi:active{
+    content: url("presentation/assets/images/starselected.png");
   }
   .vnavbar{
     display: flex;
@@ -20,8 +26,28 @@
     padding-top: 30px;
     padding-bottom: 30px;
   }
+  .group{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: start;
+    margin-bottom: 10vh
+  }
+  .group img:hover{
+    cursor: pointer;
+  }
 </style>
-<div class="vnavbar">
-  <img class="bmi" src="presentation/assets/images/stack_burgermenu.png" alt="burger menu icon">
-  <img class="pi" src="presentation/assets/images/log-in.png" alt="login icon">
+<div class="vnavbar" #vnavbar>
+  <div class="group">
+    <img class="bmi" src="presentation/assets/images/stack_burgermenu.png" alt="burger menu icon">
+  </div>
+  <div class="group">
+    <img class="pi" style="margin-bottom: 5vh;" src="presentation/assets/images/log-in.png" alt="login icon">
+    <img class="pi" src="presentation/assets/images/bookmark_14266328.png" alt="my bookmarks">
+  </div>
+  <div class="group">
+    <img class="oi" style="margin-bottom: 4vh;" src="presentation/assets/images/starnotselected_5022135.png" alt="libros">
+    <img class="oi" style="margin-bottom: 4vh;" src="presentation/assets/images/starnotselected_5022135.png" alt="autores">
+    <img class="oi" src="presentation/assets/images/starnotselected_5022135.png" alt="editoriales">
+  </div>
 </div>
