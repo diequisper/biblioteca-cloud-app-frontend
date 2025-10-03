@@ -1,9 +1,21 @@
 <style>
+  .nav{
+    height: fit-content;
+
+  }
+  .main-box{
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+  }
 </style>
-<nav>
-  <app-vnavbar></app-vnavbar>
-</nav>
-<main>
-</main>
+<div class="main-box">
+  <nav>
+    <app-vnavbar></app-vnavbar>
+  </nav>
+  <main>
+    <content-container [secTitle]="secTitle"></content-container>
+  </main>
+</div>
 
 <router-outlet></router-outlet>

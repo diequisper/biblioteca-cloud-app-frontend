@@ -4,7 +4,6 @@ import { Component, ElementRef, HostListener, ViewChild } from "@angular/core";
 @Component({
   selector : "app-vnavbar",
   standalone : true,
-  imports : [CommonModule],
   templateUrl : "../view/vnavbar.component.html"
 })
 export class VNavBarComponent{

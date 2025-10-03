@@ -1,0 +1,26 @@
+<style>
+  .content-card{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(255, 240, 248);
+    width: 90vw;
+    border-radius: 1rem;
+  }
+  .section-title{
+    text-indent: 2rem;
+  }
+</style>
+<div style="margin-left: 40px;">
+  <h1 class="section-title">{{secTitle}}</h1>
+  <div class="content-card">
+    <item-card [imgUrl]="imgUrl" [title]="title"></item-card>
+    <item-card></item-card>
+    <item-card></item-card>
+    <item-card></item-card>
+    <item-card></item-card>
+    <item-card></item-card>
+    <item-card></item-card>
+    <item-card></item-card>
+  </div>
+</div>
