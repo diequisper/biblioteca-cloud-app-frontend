@@ -7,6 +7,6 @@ import { Component, Input } from "@angular/core";
 
 })
 export class ItemCardComponent{
-  @Input() imgUrl !: string
+  @Input() imgUrl !: string | undefined
   @Input() title !: string
 }

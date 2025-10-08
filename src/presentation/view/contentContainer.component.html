@@ -14,13 +14,6 @@
 <div style="margin-left: 40px;">
   <h1 class="section-title">{{secTitle}}</h1>
   <div class="content-card">
-    <item-card [imgUrl]="imgUrl" [title]="title"></item-card>
-    <item-card></item-card>
-    <item-card></item-card>
-    <item-card></item-card>
-    <item-card></item-card>
-    <item-card></item-card>
-    <item-card></item-card>
-    <item-card></item-card>
+    <item-card *ngFor="let libro of libros" [imgUrl]="libro.getImagenUrl" [title]="libro.getTitulo"></item-card>
   </div>
 </div>
