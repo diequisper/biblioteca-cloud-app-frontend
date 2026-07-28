@@ -1,0 +1,4 @@
+  <h1 class="section-title">Libros</h1>
+  <div class="content-card">
+    <item-card *ngFor="let libro of libros" [imgUrl]="libro.getImagenUrl" [title]="libro.getTitulo"></item-card>
+  </div>

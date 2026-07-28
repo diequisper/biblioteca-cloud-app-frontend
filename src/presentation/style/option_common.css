@@ -1,0 +1,11 @@
+.content-card{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(255, 240, 248);
+    width: 90vw;
+    border-radius: 1rem;
+}
+.section-title{
+    text-indent: 2rem;
+}

@@ -1,9 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from "@angular/core";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector : "app-vnavbar",
   standalone : true,
+  imports : [RouterLink],
   templateUrl : "../view/vnavbar.component.html"
 })
 export class VNavBarComponent implements AfterViewInit{

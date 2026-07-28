@@ -11,6 +11,7 @@ export class BibBackendUtil {
   private backendUrl = inject(BACKEND_URL);
 
   get<T>(path : string){
+    console.log('GET:', `${this.backendUrl}/${path}`);
     return this.http.get<T>(`${this.backendUrl}/${path}`);
   }
 
