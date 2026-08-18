@@ -1,0 +1,89 @@
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0 0;
+    background-color: rgba(250, 130, 170, 0.520);
+    width: clamp(250px, 20em, 300px);
+    height: clamp(320px, 26em, 600px);
+    backdrop-filter: blur(10px);
+}
+.reg-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(10px, 1.2em, 32px)
+                clamp(16px, 2em, 48px)
+                clamp(16px, 2em, 48px)
+                clamp(16px, 2em, 48px);
+    background-color: rgba(250, 130, 170, 0.520);
+    width: clamp(260px, 19em, 490px);
+    backdrop-filter: blur(10px);
+}
+.head-box{
+    margin-bottom: clamp(16px, 1.6em, 28px);
+}
+.inviting-title{
+    text-align: center;
+    font-size: clamp(18px, 1.4em, 22px);
+}   
+.form-section{
+    margin-bottom: clamp(18px, 1.6em, 30px);
+}
+.form-section > *{
+    display: block;
+}
+.form-section2{
+    margin-bottom: clamp(14px, 1.2em, 28px);
+    display: flex;
+    flex-direction: column;
+}
+.lbl-1{
+    font-size: clamp(14px, 1.2em, 18px);
+    margin-bottom: clamp(4px, 0.2em, 10px);
+}
+.ipt-1{ 
+    height: clamp(14px, 1em, 16px); 
+    width: clamp(140px, 12em, 180px);   
+    font-size: clamp(12px, 1em, 16px);
+    font-family: 'Times New Roman', Times, serif;
+}
+.btn-1{
+    margin-top: clamp(19px, 1.8em, 22px);
+    margin-bottom: clamp(10px, 0.9em, 14px);
+    padding: 8px;
+    height: fit-content;     
+    width: clamp(72px, 8em, 130px);
+    font-size: clamp(12px, 1.2em, 14px);
+    background-color: rgb(242, 100, 160);
+}
+.btn-2{
+    font-size: clamp(11px, 1em, 12px);
+    justify-self: center;
+}
+.actions-bar{
+    display: flex;
+    align-self: self-start;
+    margin-bottom: 2em;
+}
+.lbl-2{
+    font-size: clamp(14px, 1.15em, 22px);
+    margin-bottom: clamp(4px, 0.2em, 14px);
+}
+.ipt-2{ 
+    height: clamp(14px, 1em, 20px); 
+    width: clamp(140px, 12em, 180px);   
+    font-size: clamp(12px, 1em, 18px);
+    font-family: 'Times New Roman', Times, serif;
+}
+.btn-3{
+    margin-top: clamp(16px, 1.4em, 26px);
+    padding: 8px;
+    height: fit-content;     
+    width: fit-content;
+    font-size: clamp(15px, 1em, 24px);
+    background-color: rgb(242, 100, 160);
+}

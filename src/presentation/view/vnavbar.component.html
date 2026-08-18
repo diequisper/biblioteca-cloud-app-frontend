@@ -1,40 +1,45 @@
 <style>
+  .vnavbar{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: start;  
+    align-items: center;
+    background-color: rgb(250, 130, 170);
+    padding: 
+      clamp(16px, 1.6em, 28px) 
+      clamp(8px, 1em, 14px)
+      clamp(8px, 0.6em, 14px)
+      clamp(8px, 1em, 14px);
+    height: 100%;
+  }
   .bmi{
-    height: 4vh;
-    width: 4vh;
+    height: clamp(20px, 1.6em, 30px);
+    width: clamp(20px, 1.6em, 30px);
   }
   .pi{
-    height: 4vh;
-    width: 4vh;
+    height: clamp(18px, 1.4em, 27px);
+    width: clamp(18px, 1.4em, 27px);
   }
   .oi{
-    height: 3.5vh;
-    width: 3.5vh;
+    height: clamp(18px, 1.4em, 27px);
+    width: clamp(18px, 1.4em, 27px);
   }
   .oi:active{
     content: url("presentation/assets/images/starselected.png");
   }
-  .vnavbar{
-    display: flex;
-    position: sticky;
-    top: 0px;
-    flex-direction: column;
-    justify-content: start;
-    background-color: rgb(250, 130, 170);
-    height: 100vh;
-    box-sizing: border-box;
-    width: fit-content;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+  .pi:not(:last-child){
+    margin-bottom: clamp(24px, 2em, 50px);
+  }
+  .oi:not(:last-child){
+    margin-bottom: clamp(24px, 2em, 50px);
   }
   .group{
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: start;
-    margin-bottom: 10vh
+    margin-bottom: clamp(49.37px, 4em, 79.37px);
   }
   .group img:hover{
     cursor: pointer;
@@ -45,12 +50,12 @@
     <img class="bmi" src="presentation/assets/images/stack_burgermenu.png" alt="icono de menú de hamburguesa">
   </div>
   <div class="group">
-    <img #optLogin class="pi" style="margin-bottom: 5vh;" src="presentation/assets/images/log-in.png" alt="icono iniciar sesión">
+    <img #optLogin class="pi" (click)="loginToggleEvent()" src="presentation/assets/images/log-in.png" alt="icono iniciar sesión">
     <img routerLink="/favoritos" #optMyBkmk class="pi" src="presentation/assets/images/bookmark_14266328.png" alt="opción mis favoritos">
   </div>
   <div class="group">
-    <img routerLink="/libros" #optLibs class="oi" style="margin-bottom: 4vh;" src="presentation/assets/images/starnotselected_5022135.png" alt="opción libros" title="Libros">
-    <img routerLink="/autores" #optAuts class="oi" style="margin-bottom: 4vh;" src="presentation/assets/images/starnotselected_5022135.png" alt="opción autores" title="Autores">
+    <img routerLink="/libros" #optLibs class="oi" src="presentation/assets/images/starnotselected_5022135.png" alt="opción libros" title="Libros">
+    <img routerLink="/autores" #optAuts class="oi" src="presentation/assets/images/starnotselected_5022135.png" alt="opción autores" title="Autores">
     <img routerLink="/editoriales" #optEds class="oi" src="presentation/assets/images/starnotselected_5022135.png" alt="opción editoriales" title="Editoriales">
   </div>
 </div>

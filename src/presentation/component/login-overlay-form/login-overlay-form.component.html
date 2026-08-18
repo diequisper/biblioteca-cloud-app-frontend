@@ -1,0 +1,46 @@
+   
+<form id="login-form" class="login-form" #loginForm="ngForm" *ngIf="!isRegistrarForm" (ngSubmit)="login('w','h')">
+    <div class="head-box">
+    <h3 class="inviting-title">Como usuario puedes <br> guardar tus libros favoritos!</h3>
+    </div>
+    <div class="form-section">
+        <label class="lbl-1" for="username">Username</label>
+        <input id="username" class="ipt-1" type="text">
+    </div>
+    <div class="form-section">
+        <label class="lbl-1" for="pwd">Password</label>
+        <input id="pwd" class="ipt-1" type="password">
+    </div>
+    <div class="form-section">
+        <button class="btn-1">Iniciar sesión</button>
+        <button class="btn-2" (click)="isRegistrarForm = true" type="button">Registrar</button>
+    </div>
+</form>
+<form id="reg-form" class="reg-form" #regForm="ngForm" *ngIf="isRegistrarForm" (ngSubmit)="registrarUsuario(regForm)">
+    <div class="actions-bar">
+        <button class="backbtn" type="button" (click)="isRegistrarForm = false">◄</button>
+    </div>
+    <div class="form-section2">
+        <label class="lbl-2" for="nmb">Nombre</label>
+        <input id="nmb" name="nombre" ngModel class="ipt-2" type="text">
+    </div>
+    <div class="form-section2">
+        <label class="lbl-2" for="apl">Apellido</label>
+        <input id="apl" name="apellido" ngModel class="ipt-2" type="text">
+    </div>
+    <div class="form-section2">
+        <label class="lbl-2" for="edad">Edad</label>
+        <input id="edad" name="edad" ngModel class="ipt-2" type="number">
+    </div>
+    <div class="form-section2">
+        <label class="lbl-2" for="usrn">Username</label>
+        <input id="usrn" name="username" ngModel class="ipt-2" type="text">
+    </div>
+    <div class="form-section2">
+        <label class="lbl-2" for="pwd">Password</label>
+        <input id="pwd" name="clave" ngModel class="ipt-2" type="password">
+    </div>
+    <div class="form-section2">
+        <button class="btn-3">Registrar</button>
+    </div>
+</form>

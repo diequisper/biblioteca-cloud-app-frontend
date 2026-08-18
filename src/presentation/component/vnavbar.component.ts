@@ -1,5 +1,4 @@
-import { CommonModule } from "@angular/common";
-import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from "@angular/core";
+import { Component, EventEmitter, Output} from "@angular/core";
 import { RouterLink } from "@angular/router";
 
 @Component({
@@ -8,30 +7,14 @@ import { RouterLink } from "@angular/router";
   imports : [RouterLink],
   templateUrl : "../view/vnavbar.component.html"
 })
-export class VNavBarComponent implements AfterViewInit{
+export class VNavBarComponent{
+  @Output()
+  loginToggle = new EventEmitter<boolean>();
 
-  vpHeight : number = 0;
-  @ViewChild('vnavbar') vNavBar !: ElementRef<HTMLDivElement>;
-  @ViewChild('optLibs') optLibs !: ElementRef<HTMLImageElement>;
+  isLoginVisible = false;
 
-  ngOnInit() : void{
-    if(typeof window !== "undefined"){
-      this.vpHeight = window.innerHeight;
-    }
+  loginToggleEvent() {
+    this.isLoginVisible = !this.isLoginVisible;
+    this.loginToggle.emit(this.isLoginVisible);
   }
-
-  ngAfterViewInit(): void {
-    this.optLibs.nativeElement.addEventListener('click', () => {
-      
-    });
-  }
-
-
-  @HostListener('window:resize')
-  onHeightResize() : void{
-    if(typeof window !== "undefined"){
-      this.vpHeight = window.innerHeight;
-    }
-  }
-
 }

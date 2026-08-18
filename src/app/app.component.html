@@ -1,21 +1,51 @@
 <style>
-  .nav{
-    height: fit-content;
-
-  }
   .main-box{
     display: flex;
+    justify-content: flex-start;
     flex-direction: row;
-    height: fit-content;
+  }
+  .main{
+    margin-left: clamp(60px, 6.5em, 86px);
+    margin-right: 15px;
+  }
+  @media (orientation: landscape) {
+    .absolute-login{
+      display: block;
+      position: fixed;
+      top: 50vh;
+      right: 0;
+      transform: translateY(-50%);
+
+    }
+  }
+  @media (orientation: portrait) {
+    .absolute-login{
+      display: block;
+      position: fixed;
+      top: 0;
+      margin-left: clamp(48px, 4em, 86px);
+    }
+  }
+  .toast{
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
   }
 </style>
 <div class="main-box">
   <nav>
-    <app-vnavbar></app-vnavbar>
+    <app-vnavbar (loginToggle)="onLoginToggle($event)">
+    </app-vnavbar>
   </nav>
   <main>
-    <div style="margin-left: 40px;">
+    <div class="main">
       <router-outlet></router-outlet>
     </div>
   </main>
 </div>
+@if (isLoginVisible) {
+  <app-login-overlay-form class="absolute-login"></app-login-overlay-form>
+}
+<app-toast-notification class="toast"></app-toast-notification>
