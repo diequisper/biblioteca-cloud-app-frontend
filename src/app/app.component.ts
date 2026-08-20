@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, computed, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { VNavBarComponent } from '../presentation/component/vnavbar.component';
 import { LoginOverlayFormComponent } from "../presentation/component/login-overlay-form/login-overlay-form.component";
 import { ToastNotificationComponent } from '../presentation/component/toast-notification/toast-notification.component';
+import { ToastService } from '../presentation/services/toast-service';
 
 @Component({
   selector: 'app-root',
@@ -14,16 +15,12 @@ import { ToastNotificationComponent } from '../presentation/component/toast-noti
 })
 export class AppComponent {
   isLoginVisible = false;
+  isActive : Signal<boolean> = computed(() => this.toastService.toastParams().outgoing);
+  message : Signal<string | null> = computed(() => this.toastService.toastParams().message);
 
-  constructor(router: Router) {
-    router.events.subscribe(event => {
-      console.log(event);
-    });
-  }
+  constructor(private toastService : ToastService){}
 
   onLoginToggle(value: boolean) {
     this.isLoginVisible = value;
   }
-   
-
 }

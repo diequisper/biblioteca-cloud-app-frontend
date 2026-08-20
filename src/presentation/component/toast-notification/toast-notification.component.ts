@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-toast-notification',
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './toast-notification.component.css'
 })
 export class ToastNotificationComponent {
-
+  @Input()
+  message : string | null = null
 }

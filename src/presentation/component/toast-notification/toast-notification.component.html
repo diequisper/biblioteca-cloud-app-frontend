@@ -8,6 +8,7 @@
             clamp(8px, 0.8em, 16px)
             clamp(14px, 1.2em, 24px)
             clamp(8px, 0.8em, 16px);
+        animation: fade-out 1s 4s forwards;
     }
     span{
         display: block;
@@ -17,7 +18,16 @@
         word-spacing: clamp(1px, 0.08em, 2px);
         text-align: justify;
     }
+    @keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
 </style>
 <div class="main-box">
-    <span>usuario creado con exito</span>
+    <span>{{message}}</span>
 </div>

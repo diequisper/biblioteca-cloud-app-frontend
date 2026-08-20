@@ -48,4 +48,6 @@
 @if (isLoginVisible) {
   <app-login-overlay-form class="absolute-login"></app-login-overlay-form>
 }
-<app-toast-notification class="toast"></app-toast-notification>
+@if (isActive()) {
+  <app-toast-notification class="toast" [message]="message()"></app-toast-notification>
+}
