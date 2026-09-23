@@ -1,24 +1,24 @@
    
-<form id="login-form" class="login-form" #loginForm="ngForm" *ngIf="!isRegistrarForm" (ngSubmit)="login('w','h')">
+<form id="login-form" class="login-form" #loginForm="ngForm" *ngIf="whichView === 'login'" (ngSubmit)="loginAuth(loginForm)">
     <div class="head-box">
-    <h3 class="inviting-title">Como usuario puedes <br> guardar tus libros favoritos!</h3>
+        <h3 class="inviting-title">Como usuario puedes <br> guardar tus libros favoritos!</h3>
     </div>
     <div class="form-section">
         <label class="lbl-1" for="username">Username</label>
-        <input id="username" class="ipt-1" type="text">
+        <input id="username" class="ipt-1" type="text" name="username" ngModel>
     </div>
     <div class="form-section">
         <label class="lbl-1" for="pwd">Password</label>
-        <input id="pwd" class="ipt-1" type="password">
+        <input id="pwd" class="ipt-1" type="password" name="clave" ngModel>
     </div>
     <div class="form-section">
-        <button class="btn-1">Iniciar sesión</button>
-        <button class="btn-2" (click)="isRegistrarForm = true" type="button">Registrar</button>
+        <button class="btn-1" type="submit">Iniciar sesión</button>
+        <button class="btn-2" (click)="whichView = 'reg'" type="button">Registrar</button>
     </div>
 </form>
-<form id="reg-form" class="reg-form" #regForm="ngForm" *ngIf="isRegistrarForm" (ngSubmit)="registrarUsuario(regForm)">
+<form id="reg-form" class="reg-form" #regForm="ngForm" *ngIf="whichView === 'reg'" (ngSubmit)="registrarUsuario(regForm)">
     <div class="actions-bar">
-        <button class="backbtn" type="button" (click)="isRegistrarForm = false">◄</button>
+        <button class="backbtn" type="button" (click)="whichView = 'login'">◄</button>
     </div>
     <div class="form-section2">
         <label class="lbl-2" for="nmb">Nombre</label>
@@ -42,5 +42,13 @@
     </div>
     <div class="form-section2">
         <button class="btn-3">Registrar</button>
+    </div>
+</form>
+<form id="loggedin" class="login-form loggedin" *ngIf="whichView === 'loggedin'">
+    <div class="head-box">
+        <h3 class="inviting-title">Bienvenido/a {{this.userNombre}}. Tu sesión ha iniciado como {{this.username}}. Disfruta de acceso completo</h3>
+    </div>
+    <div class="form-section">
+        <button class="btn-1" type="submit" (click)="logout()">Cerrar sesión</button>
     </div>
 </form>

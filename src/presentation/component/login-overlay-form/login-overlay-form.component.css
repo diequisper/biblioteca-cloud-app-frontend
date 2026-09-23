@@ -10,6 +10,14 @@
     height: clamp(320px, 26em, 600px);
     backdrop-filter: blur(10px);
 }
+.loggedin{
+    width: clamp(160px, 16em, 250px);
+    height: clamp(200px, 20em, 350px);
+    padding: clamp(10px, 1.2em, 32px)
+            clamp(16px, 2em, 48px)
+            clamp(16px, 2em, 48px)
+            clamp(16px, 2em, 48px);
+}
 .reg-form{
     display: flex;
     flex-direction: column;

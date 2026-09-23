@@ -1,5 +1,4 @@
 import { Observable } from "rxjs";
-import { LibroService } from "../../data/services/libro.service";
 import { Injectable } from "@angular/core";
 import { UsuarioService } from "../../data/services/usuario.service";
 import { Usuario } from "../entities/usuario";
