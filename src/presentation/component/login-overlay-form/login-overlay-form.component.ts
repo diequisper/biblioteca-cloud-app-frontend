@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [FormsModule, NgIf],
   templateUrl: './login-overlay-form.component.html',
-  styleUrl: './login-overlay-form.component.css'
+  styleUrls: ['./login-overlay-form.component.css', '../../style/overlay_common.css']
 })
 export class LoginOverlayFormComponent{
   

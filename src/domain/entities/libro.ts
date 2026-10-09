@@ -13,12 +13,11 @@ export class Libro{
 
 
 
-  constructor(idLibro : number, titulo : string, idioma : string, idAutor : number, anioOrgPub ?: number,
+  constructor(idLibro : number, titulo : string, idioma : string, anioOrgPub ?: number,
                 idEditorial ?: number, sinopsis ?: string, imagenUrl ?: string, anioPub ?: number, categoria ?: string){
     this.idLibro = idLibro;
     this.titulo = titulo;
     this.idioma = idioma;
-    this.idAutor = idAutor;
     this.anioOrgPub = anioOrgPub;
     this.idEditorial = idEditorial;
     this.sinopsis = sinopsis;

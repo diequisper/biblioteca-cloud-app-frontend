@@ -1,0 +1,34 @@
+.photo{
+    width: clamp(72px, 6.5em, 300px);
+    align-self: center;
+
+}
+
+.action-btn{
+    width: clamp(12px, 1em, 18px);
+    cursor: pointer;
+}
+
+.details-overlay{
+    padding: clamp(14px, 1em, 22px)
+            clamp(14px, 1em, 22px)
+            clamp(14px, 1em, 22px)
+            clamp(14px, 1em, 22px);
+}
+
+.main-txt {
+    text-align: center;
+    font-size: clamp(14px, 1.1em, 20px);
+}
+
+.second-txt{
+    text-align: center;
+    font-size: clamp(12.5px, 0.95em, 18px);
+    color: rgb(36, 38, 46);
+}
+
+.txt-content{
+    text-align:justify;
+    text-justify: newspaper;
+    font-size: clamp(12px, 0.95em, 18px);
+}

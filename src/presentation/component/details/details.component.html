@@ -1,0 +1,18 @@
+<form id="libro-detalle" class="overlay-mainframe details-overlay">
+    <div class="actions-bar">
+        <img class="action-btn" (click)="close()"  src="presentation/assets/images/orangewarning.png" alt="cerrar detalles">
+        <img class="action-btn" (click)="addBookmark()" src="presentation/assets/images/bookmark_14266328.png" alt="añadir a mis favoritos">
+    </div>
+    <div class="form-content">
+        <img class="photo" [src]="cover()" alt="portada del libro">
+        <div class="head-box">
+            <h3 class="main-txt">{{title()}}</h3>
+            <h4 class="second-txt">{{autoresNombres()}}</h4>
+        </div>
+        <div class="head-box">
+            <p class="txt-content">
+                {{sinopsis()}}
+            </p>
+        </div>
+    </div>
+</form>

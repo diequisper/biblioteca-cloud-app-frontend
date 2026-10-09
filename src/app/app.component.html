@@ -9,7 +9,7 @@
     margin-right: 15px;
   }
   @media (orientation: landscape) {
-    .absolute-login{
+    .overlay-card{
       display: block;
       position: fixed;
       top: 50vh;
@@ -19,7 +19,7 @@
     }
   }
   @media (orientation: portrait) {
-    .absolute-login{
+    .overlay-card{
       display: block;
       position: fixed;
       top: 0;
@@ -34,6 +34,7 @@
     transform: translateX(50%);
   }
 </style>
+
 <div class="main-box">
   <nav>
     <app-vnavbar (loginToggle)="onLoginToggle($event)">
@@ -46,8 +47,11 @@
   </main>
 </div>
 @if (isLoginVisible) {
-  <app-login-overlay-form class="absolute-login"></app-login-overlay-form>
+  <app-login-overlay-form class="overlay-card"></app-login-overlay-form>
 }
 @if (isActive()) {
   <app-toast-notification class="toast" [message]="message()"></app-toast-notification>
+}
+@if(isDetailShown() && isLoginVisible == false){
+  <app-details class="overlay-card"></app-details>
 }

@@ -6,6 +6,8 @@ import { LoginRequestDto } from '../../../dto/login-request-dto';
 import { LoginResponseDto } from '../../../dto/login-response-dto';
 import { MessageResponseDto } from '../../../dto/message-response-dto';
 import { UsuarioResponseDto } from '../../../dto/usuario-response-dto';
+import { MessageObjectDto } from '../../../dto/message-object-dto';
+import { Autor } from '../../../../domain/entities/autor';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +36,14 @@ export class BibBackendUtil {
 
   getMe(complementPath : string){
     return this.http.get<UsuarioResponseDto>(`${this.backendUrl}/${complementPath}`, { withCredentials: true })
+  }
+
+  postBookmark(complementPath : string, genId : number | undefined, paramName : string){
+    return this.http.post<MessageResponseDto>(`${this.backendUrl}/${complementPath}`, null, { params : {[paramName] : genId ?? ''}, 
+                                                                                              withCredentials: true  })
+  }
+
+  getAutorByBookId(complementPath : string, idLibro : number){
+    return this.http.get<MessageObjectDto<Autor[]>>(`${this.backendUrl}/${complementPath}`, {params : {"id_libro" : idLibro}})
   }
 }

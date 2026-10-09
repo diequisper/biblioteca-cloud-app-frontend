@@ -7,24 +7,29 @@ import { ToastNotificationComponent } from '../presentation/component/toast-noti
 import { ToastService } from '../presentation/services/toast-service';
 import { SessionUC } from '../domain/use-cases/session-usecase';
 import { LoginAuthService } from '../data/services/login-auth.service';
+import { ShowDetailService } from '../presentation/services/show-details-service';
+import { DetailsComponent } from '../presentation/component/details/details.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, VNavBarComponent, LoginOverlayFormComponent, ToastNotificationComponent],
+  imports: [CommonModule, RouterOutlet, VNavBarComponent, LoginOverlayFormComponent, 
+    ToastNotificationComponent, DetailsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+
+  private showDetailService = inject(ShowDetailService);
+  private loginAuthService = inject(LoginAuthService);
+
   isLoginVisible = false;
+  isDetailShown = this.showDetailService.detailToggle;
   isActive : Signal<boolean> = computed(() => this.toastService.toastParams().outgoing);
   message : Signal<string | null> = computed(() => this.toastService.toastParams().message);
   ongoingMessage : Signal<boolean> = computed(() => this.toastService.toastParams().outgoing);
 
-  private loginAuthService = inject(LoginAuthService);
-
   constructor(private toastService : ToastService, private sessionUC : SessionUC){}
-
 
   ngOnInit(): void {
     if(this.ongoingMessage() != true){

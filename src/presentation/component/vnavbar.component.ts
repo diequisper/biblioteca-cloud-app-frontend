@@ -11,7 +11,7 @@ export class VNavBarComponent{
   @Output()
   loginToggle = new EventEmitter<boolean>();
 
-  isLoginVisible = false;
+  isLoginVisible = false; 
 
   loginToggleEvent() {
     this.isLoginVisible = !this.isLoginVisible;
