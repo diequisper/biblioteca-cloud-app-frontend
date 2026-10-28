@@ -12,4 +12,9 @@ export class GetAllLibroUC {
     const path = 'libro/getAll?TableOpt=libro';
     return this.libroService.getAllLibro(path);
   }
+
+  getAllByEditorial(editorialId : number){
+    const path = 'libro/getAllByEditorial'
+    return this.libroService.getAllByEditorial(path, editorialId)
+  }
 }

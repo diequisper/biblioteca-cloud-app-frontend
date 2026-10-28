@@ -49,7 +49,7 @@ export class LibrosComponent implements OnDestroy{
     this.autorUC.getAutorByBookId(libro.getIdLibro).subscribe({
       next : resp => {
         autores = resp.result
-        this.showDetailService.toggleDetail(libro, autores)
+        this.showDetailService.toggleDetailLibro(libro, autores)
       },
       error : err => {
         console.log(err.error.message)  

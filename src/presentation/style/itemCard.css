@@ -1,0 +1,40 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 0.8rem;
+}
+
+.card.mini {
+    width: clamp(120px, 3em, 167px);
+    height: clamp(160px, 3.75em, 214px);
+
+}
+
+.card.regular {
+    width: clamp(180px, 4em, 250px);
+    height: clamp(240px, 5em, 320px);
+}
+
+.card:hover {
+    background-color: rgb(231, 223, 236);
+    cursor: pointer;
+}
+
+.card img {
+    object-fit: contain;
+    height: 80%;
+}
+
+.card h3 {
+    text-align: center;
+    margin: 0;
+}
+
+.card.mini h3 {
+    font-size: clamp(12px, 0.9em, 20px);
+}
+
+.card.regular h3 {
+    font-size: clamp(14px, 1.2em, 24px);
+}

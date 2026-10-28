@@ -1,7 +1,7 @@
-<form id="libro-detalle" class="overlay-mainframe details-overlay">
+<form *ngIf="currentRoute === '/libros'" id="libro-detalle" class="overlay-mainframe details-overlay">
     <div class="actions-bar">
         <img class="action-btn" (click)="close()"  src="presentation/assets/images/orangewarning.png" alt="cerrar detalles">
-        <img class="action-btn" (click)="addBookmark()" src="presentation/assets/images/bookmark_14266328.png" alt="añadir a mis favoritos">
+        <img class="action-btn" (click)="addBookmarkLibro()" src="presentation/assets/images/bookmark_14266328.png" alt="añadir a mis favoritos">
     </div>
     <div class="form-content">
         <img class="photo" [src]="cover()" alt="portada del libro">
@@ -13,6 +13,45 @@
             <p class="txt-content">
                 {{sinopsis()}}
             </p>
+        </div>
+    </div>
+</form>
+
+<form *ngIf="currentRoute === '/autores'" id="autor-detalle" class="overlay-mainframe details-overlay">
+    <div class="actions-bar">
+        <img class="action-btn" (click)="close()"  src="presentation/assets/images/orangewarning.png" alt="cerrar detalles">
+        <img class="action-btn" (click)="addBookmarkAutor()" src="presentation/assets/images/bookmark_14266328.png" alt="añadir a mis favoritos">
+    </div>
+    <div class="form-content">
+        <img class="photo" [src]="foto()" alt="portada del libro">
+        <div class="head-box">
+            <h3 class="main-txt">{{nombreCompleto()}}</h3>
+            <h4 class="second-txt">{{bornDied()}}</h4>
+        </div>
+        <div class="head-box">
+            <p class="txt-content">
+                {{bio()}}
+            </p>
+        </div>
+    </div>
+</form>
+
+<form *ngIf="currentRoute === '/editoriales'" id="editorial-detalle" class="overlay-mainframe details-overlay">
+    <div class="actions-bar">
+        <img class="action-btn" (click)="close()"  src="presentation/assets/images/orangewarning.png" alt="cerrar detalles">
+        <img class="action-btn" (click)="addBookmarkEditorial()" src="presentation/assets/images/bookmark_14266328.png" alt="añadir a mis favoritos">
+    </div>
+    <div class="form-content">
+        <img class="photo" [src]="logo()" alt="portada del libro">
+        <div class="head-box">
+            <h3 class="main-txt">{{nombre()}}</h3>
+            <h4 class="second-txt">{{pais()}}</h4>
+        </div>
+        <div class="head-box" >
+            <h5>Ejemplares: </h5>
+            <div class="mini-content-card">
+                <item-card *ngFor="let ej of ejemplares()" [imgUrl]="ej.getImagenUrl" [title]="ej.getTitulo" [style]="'mini'"></item-card>
+            </div>
         </div>
     </div>
 </form>

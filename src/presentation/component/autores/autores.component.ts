@@ -36,10 +36,10 @@ export class AutoresComponent implements OnDestroy{
         console.error('Error:', err);
       }
     });
-    console.log(this.autores)
   }
 
   toggleDetails(autor : Autor){
+    this.showDetailService.toggleDetailAutor(autor) 
   }
 
   ngOnDestroy(): void {

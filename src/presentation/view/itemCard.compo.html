@@ -1,27 +1,6 @@
-<style>  
-  .card{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: clamp(180px, 4em, 250px);
-    height: clamp(240px, 5em, 320px);
-    border-radius: 0.8rem;
-  }
-  .card:hover{
-    background-color: rgb(231, 223, 236);
-    cursor: pointer;
-  }
-  img{
-    object-fit: contain;
-    height: 80%;
-  }
-  h3{
-    text-align: center;
-    font-size: clamp(16px, 1.2em, 24px);
-    margin: 0;
-  }
-</style>
-<div class="card">
+
+<div class="card" [class.mini]="style === 'mini'"
+                  [class.regular]="style === 'regular'">
   <img [src]="imgUrl" alt="cover art">
   <h3>{{title}}</h3>
 </div>

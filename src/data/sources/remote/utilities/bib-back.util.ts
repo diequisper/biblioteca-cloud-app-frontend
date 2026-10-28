@@ -8,6 +8,7 @@ import { MessageResponseDto } from '../../../dto/message-response-dto';
 import { UsuarioResponseDto } from '../../../dto/usuario-response-dto';
 import { MessageObjectDto } from '../../../dto/message-object-dto';
 import { Autor } from '../../../../domain/entities/autor';
+import { Libro } from '../../../../domain/entities/libro';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +46,9 @@ export class BibBackendUtil {
 
   getAutorByBookId(complementPath : string, idLibro : number){
     return this.http.get<MessageObjectDto<Autor[]>>(`${this.backendUrl}/${complementPath}`, {params : {"id_libro" : idLibro}})
+  }
+
+  getLibrosByEditorial(complementPath : string, idEditorial : number){
+    return this.http.get<MessageObjectDto<Libro[]>>(`${this.backendUrl}/${complementPath}`, {params : {"editorialId" : idEditorial}})
   }
 }
