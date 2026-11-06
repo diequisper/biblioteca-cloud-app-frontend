@@ -1,5 +1,36 @@
-  <h1 class="section-title">Autores</h1>
-  <div class="content-card">
-     <item-card (click)="toggleDetails(autor)" *ngFor="let autor of autores" [imgUrl]="autor.getImagenUrl()" [title]="autor.getNombre() + ' ' + autor.getApellido()"></item-card>
-  </div>
 
+<h1 class="section-title">Autores</h1>
+
+<app-filters-bar (paramSelected)="filterAutoresByParam($event)"></app-filters-bar>
+
+<div class="content-card opts-box" *ngIf="filterParam === 'a-z'">
+   <ng-container *ngFor="let letter of alphabet">
+
+      <h2>{{ letter }}</h2>
+
+      <ng-container *ngFor="let autor of autores">
+         <item-card
+            *ngIf="autor.getNombre().startsWith(letter)"
+            (click)="toggleDetails(autor)"
+            [imgUrl]="autor.getImagenUrl()"
+            [title]="autor.getNombre() + ' ' + autor.getApellido()">
+         </item-card>
+      </ng-container>
+
+   </ng-container>
+</div>
+
+<div class="content-card" *ngIf="filterParam !== 'a-z' && filterParam !== 'nacionalidad'">
+   <item-card (click)="toggleDetails(autor)" *ngFor="let autor of autores" [imgUrl]="autor.getImagenUrl()" [title]="autor.getNombre() + ' ' + autor.getApellido() "></item-card>
+</div>
+
+<div class="content-card opts-box" *ngIf="filterParam == 'nacionalidad'">
+   <ng-container *ngIf="isModifierOn === false">
+      <ul class="opts" *ngFor="let n of nacionalidades">
+         <li (click)="performFilterByOption(n)">{{n}}</li>
+      </ul>
+   </ng-container>
+   <ng-container *ngIf="isModifierOn === true">
+      <item-card (click)="toggleDetails(autor)" *ngFor="let autor of autores" [imgUrl]="autor.getImagenUrl()" [title]="autor.getNombre() + ' ' + autor.getApellido() "></item-card>
+   </ng-container>
+</div>

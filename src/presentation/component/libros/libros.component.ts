@@ -7,18 +7,20 @@ import { ShowDetailService } from '../../services/show-details-service';
 import { OnDestroy } from '@angular/core';
 import { AutorUC } from '../../../domain/use-cases/autor-usecase';
 import { Autor } from '../../../domain/entities/autor';
+import { FiltersBarComponent } from '../filters-bar/filters-bar.component';
 @Component({
   selector: 'app-libros',
   standalone: true,
-  imports: [CommonModule, ItemCardComponent],
+  imports: [CommonModule, ItemCardComponent, FiltersBarComponent],
   templateUrl: './libros.component.html',
   styleUrls: ['./libros.component.css', '../../style/option_common.css']
 })
 export class LibrosComponent implements OnDestroy{
 
   @Input() secTitle !: string;  
-
+  private filterParam : string | null = null
   libros : Array<Libro> = new Array<Libro>;
+  private allLibros : Array<Libro> = new Array<Libro>;
   private getAllLibroUC = inject(GetAllLibroUC)
   private showDetailService = inject(ShowDetailService)
   private autorUC = inject(AutorUC)
@@ -26,7 +28,7 @@ export class LibrosComponent implements OnDestroy{
   ngOnInit(): void {
     this.getAllLibroUC.execute().subscribe({
       next: resp => {
-        this.libros = resp.map((x: any) => 
+        this.allLibros = resp.map((x: any) => 
           new Libro(
             x.idLibro,
             x.titulo,
@@ -37,13 +39,28 @@ export class LibrosComponent implements OnDestroy{
             x.imagenUrl,
             x.anioPub,
             x.categoria)
-        )},
+        )
+        this.applyFilter()
+      },
       error: err => {
         console.error('Error:', err);
       }
     });
   }
 
+  filterLibrosByParam(param: string | null): void {
+    this.filterParam =
+      this.filterParam === param ? null : param;
+
+    this.applyFilter();
+  }
+
+  private applyFilter(): void {
+    this.libros = this.filterParam === null
+      ? [...this.allLibros]
+      : this.allLibros.filter(libro => libro.getCategoria === this.filterParam);
+  }
+  
   toggleDetails(libro : Libro){
     var autores : Autor[] = []
     this.autorUC.getAutorByBookId(libro.getIdLibro).subscribe({

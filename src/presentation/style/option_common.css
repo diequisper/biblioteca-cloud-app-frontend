@@ -5,7 +5,7 @@
     gap: 3.5em;
     justify-content: center;
     padding: 2em 2em 4em 2em;
-    margin-top: 2.5em;
+    margin-top: 1em;
     margin-bottom: 2.5em;
     background-color: rgb(255, 240, 248);
     border-radius: 1rem;
@@ -25,4 +25,16 @@
     background-color: rgb(255, 240, 248);
     border-radius: 0.8rem;
     width: fit-content;
+}
+
+.opts-box{
+    flex-direction: column;
+    gap: 0.5em;
+}
+.opts{
+    text-decoration: underline
+}
+.opts:hover{
+    color: rgb(250, 129, 170);
+    cursor: pointer;
 }

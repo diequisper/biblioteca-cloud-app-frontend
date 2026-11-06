@@ -9,7 +9,6 @@ import { MessageObjectDto } from '../dto/message-object-dto';
   providedIn: 'root'
 })
 export class LibroService implements libroInterface {
-  
 
   private bibBackUtil = inject(BibBackendUtil);
     
@@ -19,5 +18,9 @@ export class LibroService implements libroInterface {
   
   getAllByEditorial(complementPath: string, editorialId: number): Observable<MessageObjectDto<Libro[]>> {
     return this.bibBackUtil.getLibrosByEditorial(complementPath, editorialId)
+  }
+
+  getAllCategoria(complementPath: string): Observable<MessageObjectDto<string[]>> {
+    return this.bibBackUtil.getAllGenre(complementPath)
   }
 }

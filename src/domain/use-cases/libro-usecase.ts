@@ -17,4 +17,9 @@ export class GetAllLibroUC {
     const path = 'libro/getAllByEditorial'
     return this.libroService.getAllByEditorial(path, editorialId)
   }
+
+  getAllCategoria(){
+    const path = 'libro/getAllGenres'
+    return this.libroService.getAllCategoria(path)
+  }
 }

@@ -51,4 +51,8 @@ export class BibBackendUtil {
   getLibrosByEditorial(complementPath : string, idEditorial : number){
     return this.http.get<MessageObjectDto<Libro[]>>(`${this.backendUrl}/${complementPath}`, {params : {"editorialId" : idEditorial}})
   }
+
+  getAllGenre(complementPath : string){
+    return this.http.get<MessageObjectDto<string[]>>(`${this.backendUrl}/${complementPath}`, { withCredentials : true })
+  }
 }

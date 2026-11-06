@@ -1,5 +1,44 @@
   <h1 class="section-title">Editoriales</h1>
-  <div class="content-card">
-    <item-card (click)="toggleDetails(editorial)" *ngFor="let editorial of editoriales" [imgUrl]="editorial.getImagenUrl" [title]="editorial.getNombre"></item-card>
+
+  <app-filters-bar (paramSelected)="filterEditorialesByParam($event)"></app-filters-bar>
+
+  <div class="content-card opts-box" *ngIf="filterParam === 'a-z'">
+   <ng-container *ngFor="let letter of alphabet">
+
+      <h2>{{ letter }}</h2>
+      <ng-container *ngFor="let editorial of editoriales">
+        <item-card 
+          *ngIf="editorial.getNombre.startsWith(letter)"
+          (click)="toggleDetails(editorial)"
+          [imgUrl]="editorial.getImagenUrl" 
+          [title]="editorial.getNombre">
+        </item-card>
+      </ng-container>
+    </ng-container>
   </div>
+
+  <div class="content-card" *ngIf="filterParam !== 'a-z' && filterParam !== 'pais'">
+    <item-card 
+      *ngFor="let editorial of editoriales"
+      (click)="toggleDetails(editorial)"
+      [imgUrl]="editorial.getImagenUrl" 
+      [title]="editorial.getNombre">
+    </item-card>
+  </div>
+
+  <div class="content-card opts-box" *ngIf="filterParam == 'pais'">
+   <ng-container *ngIf="isModifierOn === false">
+      <ul class="opts" *ngFor="let p of paises">
+         <li (click)="performFilterByOption(p)">{{p}}</li>
+      </ul>
+   </ng-container>
+   <ng-container *ngIf="isModifierOn === true">
+      <item-card 
+        *ngFor="let editorial of editoriales"
+        (click)="toggleDetails(editorial)"
+        [imgUrl]="editorial.getImagenUrl" 
+        [title]="editorial.getNombre">
+    </item-card>
+   </ng-container>
+</div>
 
