@@ -55,4 +55,8 @@ export class BibBackendUtil {
   getAllGenre(complementPath : string){
     return this.http.get<MessageObjectDto<string[]>>(`${this.backendUrl}/${complementPath}`, { withCredentials : true })
   }
+
+  getAllByUser<T>(complementPath : string){
+    return this.http.get<T>(`${this.backendUrl}/${complementPath}`, { withCredentials : true })
+  }
 }
